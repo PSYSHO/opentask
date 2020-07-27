@@ -17,7 +17,7 @@ import java.util.Random;
 public class UserService implements UserDetailsService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-
+    @Autowired
     private UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {

@@ -17,10 +17,10 @@ public class RegistrationController {
     }
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @GetMapping("/registration")
     public String registration() {
