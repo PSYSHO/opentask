@@ -19,7 +19,7 @@ app.controller("MainCtrl",function ($scope,$http,MainService) {
     function MainData() {
         $http({
             method: 'GET',
-            url: '/game'
+            url: './game'
         }).then(
             function (res) { // success
                 $scope.attempts = res.data;
@@ -58,13 +58,13 @@ app.service('MainService', ['$http', function ($http) {
     this.setAnswer = function setAnswer(answer) {
         return $http({
             method: 'GET',
-            url: '/game/'+answer,
+            url: './game/'+answer,
         });
     }
     this.gameStart = function gameStart() {
         $http({
             method: 'POST',
-            url: '/game/start'
+            url: './game/start'
         })
     }
 
