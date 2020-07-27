@@ -7,11 +7,13 @@ import com.example.opentask.domain.User;
 import com.example.opentask.repos.AttemptRepos;
 import com.example.opentask.repos.GameRepos;
 import com.example.opentask.repos.UserRepository;
+import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -29,7 +31,10 @@ public class GameController {
 
     @GetMapping
     public List<Attempt> getAllAttempt(@AuthenticationPrincipal User user) {
-        return attemptRepos.findAllByUser(user);
+        List<Attempt>attempts = attemptRepos.findAllByUser(user);
+        Collections.reverse(attempts);
+        return attempts;
+
     }
 
     @GetMapping("/{answer}")

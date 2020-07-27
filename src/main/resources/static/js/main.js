@@ -50,7 +50,6 @@ app.controller("MainCtrl",function ($scope,$http,MainService) {
     }
     $scope.gameStart = function () {
             MainService.gameStart()
-                .then(MainData)
     }
 
 })
@@ -66,14 +65,7 @@ app.service('MainService', ['$http', function ($http) {
         $http({
             method: 'POST',
             url: '/game/start'
-        }).then(
-            function (res) { // success
-                $scope.game = res.data;
-            },
-            function (res) { // error
-                console.log("Error: " + res.status + " : " + res.data);
-            }
-        );
+        })
     }
 
 }]);

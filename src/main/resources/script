@@ -18,9 +18,10 @@ create table ATTEMPT
 (
     ID      BIGINT auto_increment
         primary key,
+    FLAG    BOOLEAN not null,
     RESULT  VARCHAR(255),
-    GAME_ID BIGINT not null,
-    USER_ID BIGINT not null,
+    GAME_ID BIGINT  not null,
+    USER_ID BIGINT  not null,
     constraint FKA89Q0012TAQ24MB0CL5L5DJF1
         foreign key (GAME_ID) references GAME (ID),
     constraint FKH1STJBKOITIXXVX59W3EQJMTF
@@ -34,3 +35,4 @@ create table USER_ROLE
     constraint FKFPM8SWFT53ULQ2HL11YPLPR5
         foreign key (USER_ID) references USR (ID)
 );
+
